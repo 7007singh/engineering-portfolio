@@ -5,6 +5,7 @@ from backend.app.core.config import settings
 from backend.app.database.base import Base
 from backend.app.database.session import engine
 from backend.app.models.project import Project
+from fastapi.middleware.cors import CORSMiddleware
 
 
 Base.metadata.create_all(bind=engine)
@@ -16,6 +17,17 @@ app = FastAPI(
 )
 
 app.include_router(router)
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
