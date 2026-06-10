@@ -7,22 +7,27 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
 function App() {
-  return (
-    <>
-      <Navbar />
+return (
+<> <Navbar />
 
-      <main className="md:ml-64">
+  <main className="transition-all duration-300 md:ml-60">
 
-        <Hero />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Contact />
-        <Footer />
+    <Hero />
 
-      </main>
-    </>
-  );
+    <Skills />
+
+    <Experience />
+
+    <Projects />
+
+    <Contact />
+
+    <Footer />
+
+  </main>
+</>
+
+);
 }
 
 export default App;

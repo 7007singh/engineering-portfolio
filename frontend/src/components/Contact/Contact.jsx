@@ -1,26 +1,154 @@
+import { useState } from "react";
+import SectionWrapper from "../common/SectionWrapper";
+
 function Contact() {
-  return (
-    <section
-      id="contact"
-      className="py-24 bg-gray-50"
-    >
-      <div className="max-w-4xl mx-auto px-6 text-center">
+const [copied, setCopied] = useState(false);
 
-        <h2 className="text-4xl font-bold mb-6">
-          Let's Connect
-        </h2>
+const copyEmail = () => {
+navigator.clipboard.writeText(
+"[shw12021982@gmail.com](mailto:shw12021982@gmail.com)"
+);
 
-        <p className="text-gray-600 mb-10">
-          I'm interested in backend engineering,
-          distributed systems, cloud infrastructure,
-          and scalable platform development.
+
+setCopied(true);
+
+setTimeout(() => {
+  setCopied(false);
+}, 2000);
+
+
+};
+
+return ( <SectionWrapper> <section
+     id="contact"
+     className="py-24 bg-white"
+   > <div className="max-w-5xl mx-auto px-6">
+
+
+      <div
+        className="
+          bg-white
+          border
+          border-slate-200
+          rounded-3xl
+          p-12
+          shadow-sm
+          text-center
+        "
+      >
+
+        <p className="text-blue-600 font-medium mb-4">
+          Get In Touch
         </p>
 
-        <div className="flex justify-center gap-4 flex-wrap">
+        <h2 className="text-5xl font-bold text-slate-900 mb-6">
+          Let's Build Something Great
+        </h2>
+
+        <p className="text-slate-600 text-lg max-w-3xl mx-auto mb-10">
+          I'm currently open to Backend Engineering,
+          Python Development, FastAPI projects,
+          Distributed Systems work, and exciting
+          software engineering opportunities.
+        </p>
+
+        {/* Availability */}
+
+        <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-12">
+
+          <div className="flex items-center gap-3 text-slate-700">
+            <span className="text-blue-600 font-bold">✓</span>
+            Backend Engineering Roles
+          </div>
+
+          <div className="flex items-center gap-3 text-slate-700">
+            <span className="text-blue-600 font-bold">✓</span>
+            Python Development
+          </div>
+
+          <div className="flex items-center gap-3 text-slate-700">
+            <span className="text-blue-600 font-bold">✓</span>
+            FastAPI Projects
+          </div>
+
+          <div className="flex items-center gap-3 text-slate-700">
+            <span className="text-blue-600 font-bold">✓</span>
+            Distributed Systems
+          </div>
+
+        </div>
+
+        {/* Email Copy */}
+
+        <div className="flex justify-center mb-10">
+
+          <div className="relative group">
+
+            <button
+              onClick={copyEmail}
+              className="
+                inline-flex
+                items-center
+                gap-3
+                px-5
+                py-3
+                rounded-full
+                bg-slate-100
+                text-slate-700
+                hover:bg-slate-200
+                transition
+              "
+            >
+              <span>📧</span>
+
+              <span className="font-medium">
+                shw12021982@gmail.com
+              </span>
+            </button>
+
+            <div
+              className="
+                absolute
+                -top-10
+                left-1/2
+                -translate-x-1/2
+                px-3
+                py-1
+                rounded-lg
+                bg-slate-900
+                text-white
+                text-xs
+                opacity-0
+                group-hover:opacity-100
+                transition
+                pointer-events-none
+                whitespace-nowrap
+              "
+            >
+              {copied ? "Copied!" : "Copy"}
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* Buttons */}
+
+        <div className="flex justify-center flex-wrap gap-4">
 
           <a
-            href="mailto:your-email@gmail.com"
-            className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=shw12021982@gmail.com&su=Backend%20Engineering%20Opportunity"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              px-6
+              py-3
+              bg-black
+              text-white
+              rounded-xl
+              hover:bg-slate-800
+              transition
+            "
           >
             Email Me
           </a>
@@ -29,16 +157,32 @@ function Contact() {
             href="https://github.com/7007singh"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 border rounded-lg hover:bg-gray-100 transition"
+            className="
+              px-6
+              py-3
+              border
+              border-slate-300
+              rounded-xl
+              hover:bg-slate-100
+              transition
+            "
           >
             GitHub
           </a>
 
           <a
-            href="https://linkedin.com"
+            href="YOUR_LINKEDIN_URL"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 border rounded-lg hover:bg-gray-100 transition"
+            className="
+              px-6
+              py-3
+              border
+              border-slate-300
+              rounded-xl
+              hover:bg-slate-100
+              transition
+            "
           >
             LinkedIn
           </a>
@@ -46,8 +190,13 @@ function Contact() {
         </div>
 
       </div>
-    </section>
-  );
+
+    </div>
+  </section>
+</SectionWrapper>
+
+
+);
 }
 
 export default Contact;

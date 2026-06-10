@@ -11,4 +11,5 @@ class Project(Base):
     title: Mapped[str] = mapped_column(String(255))
     description: Mapped[str] = mapped_column(String(1000))
     github_url: Mapped[str] = mapped_column(String(500))
+    tech_stack: Mapped[str] = mapped_column(String(500))
 

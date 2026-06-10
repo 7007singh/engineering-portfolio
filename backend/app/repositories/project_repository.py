@@ -11,7 +11,8 @@ class ProjectRepository:
         db_project = Project(
             title=project.title,
             description=project.description,
-            github_url=project.github_url
+            github_url=project.github_url,
+            tech_stack=project.tech_stack
         )
 
         db.add(db_project)
